@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TempSystem</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="default_temp">23°C</string>
+    <string name="placeholder_humidity">Humidity</string>
+    <string name="default_humidity">68%</string>
+</resources>
