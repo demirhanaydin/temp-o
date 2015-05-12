@@ -8,32 +8,75 @@
                 android:paddingBottom="@dimen/activity_vertical_margin"
                 tools:context=".MainActivity">
 
-    <TextView
-        android:text="@string/default_temp"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/tempText"
-        android:id="@+id/textViewTemp"
-        android:layout_marginTop="50dp"
+        android:id="@+id/linearLayout"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp">
 
-    <TextView
-        android:text="@string/default_humidity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/humidityText"
-        android:id="@+id/textViewHumidity"
-        android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true"/>
+        <!-- temp value -->
+        <!-- temp postfix-->
 
+        <TextView
+            android:text="@string/default_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/tempText"
+            android:id="@+id/textViewTemp"
+            android:layout_alignParentTop="true"
+            android:layout_alignEnd="@+id/button_save"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/temp_postfix"
+            android:id="@+id/textView"
+            style="@style/tempText"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/textView3"/>
+
+    </LinearLayout>
+    <!-- humidity text-->
+    <!-- humidity value -->
+    <!-- humidity postfix -->
+    <!-- save button -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/placeholder_humidity"
         android:id="@+id/textView3"
-        android:layout_below="@+id/textViewTemp"
+        android:layout_below="@+id/linearLayout"
         android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:text="@string/default_humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/humidityText"
+            android:id="@+id/textViewHumidity"
+            android:layout_centerVertical="true"
+            android:layout_alignEnd="@+id/textView3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/humidity_postfix"
+            android:id="@+id/humidity_postfix"
+            style="@style/humidityText"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/textViewHumidity"/>
+    </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
@@ -41,6 +84,7 @@
         android:text="Save"
         android:id="@+id/button_save"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:onClick="saveCurrentEntry"/>
 
 </RelativeLayout>

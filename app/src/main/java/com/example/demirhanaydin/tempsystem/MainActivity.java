@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -29,10 +31,15 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_save) {
+        if (id == R.id.action_history) {
+            // intent to history page
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void saveCurrentEntry(View view){
+        Toast.makeText(this, "saved", Toast.LENGTH_LONG).show();
     }
 }
