@@ -1,5 +1,6 @@
 package com.example.demirhanaydin.tempsystem;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +12,9 @@ public class MapActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // hide action bar for map activity
+//        ActionBar actionBar = getActionBar();
+//        actionBar.hide();
         setContentView(R.layout.activity_map);
     }
 
