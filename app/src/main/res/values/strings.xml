@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">TempSystem</string>
+    <integer name="google_play_services_version">7327000</integer>
+    <string name="google_maps_key">AIzaSyAE0RfwImo9ye_gsroqIxpB3jIb2bZG614</string>
     <!-- main activity -->
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -12,4 +14,5 @@
     <!-- menu item-->
     <string name="action_history">History</string>
     <string name="action_main">Main</string>
+    <string name="title_activity_map">MapActivity</string>
 </resources>
