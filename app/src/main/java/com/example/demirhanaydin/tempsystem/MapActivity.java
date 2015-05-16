@@ -2,12 +2,23 @@ package com.example.demirhanaydin.tempsystem;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
 
 
-public class MapActivity extends Activity {
+public class MapActivity extends FragmentActivity {
+    ListView lv;
+    GoogleMap mMap;
+    Cursor cursor;
+    DatabaseHandler db;
+    EntryCursorAdapter entryCursorAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +27,10 @@ public class MapActivity extends Activity {
 //        ActionBar actionBar = getActionBar();
 //        actionBar.hide();
         setContentView(R.layout.activity_map);
+        db = new DatabaseHandler(getApplicationContext());
+
+        // setup list
+        setUpList();
     }
 
     @Override
@@ -38,5 +53,33 @@ public class MapActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setUpMapIfNeeded() {
+        // Do a null check to confirm that we have not already instantiated the map.
+        if (mMap == null) {
+            // Try to obtain the map from the SupportMapFragment.
+            mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
+            // Check if we were successful in obtaining the map.
+            if (mMap != null) {
+                setUpMap();
+            }
+        }
+    }
+    private void setUpMap() {
+
+    }
+    private void setUpList(){
+        lv = (ListView) findViewById(R.id.listView);
+        //-- Read cursor from the database
+        cursor = db.getEntries();
+        entryCursorAdapter = new EntryCursorAdapter(
+                MapActivity.this,
+                cursor,
+                R.layout.list_item
+        );
+        //-- Set adapter to listview
+        lv.setAdapter(entryCursorAdapter);
+        registerForContextMenu(lv);
     }
 }

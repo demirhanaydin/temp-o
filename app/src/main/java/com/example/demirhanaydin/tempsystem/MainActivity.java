@@ -71,7 +71,13 @@ public class MainActivity extends Activity {
         // create entry
         lastKnownLocation = mGPSService.getLocation();
         if(lastKnownLocation != null){
-            Entry entry = new Entry(0, temp, humidity, "", lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude(), currentTimeMillis());
+            Entry entry = new Entry(0,
+                    temp,
+                    humidity,
+                    "",
+                    lastKnownLocation.getLatitude(),
+                    lastKnownLocation.getLongitude(),
+                    System.currentTimeMillis());
             result = db.addEntry(entry);
             if(result > 0){
                 Toast.makeText(this, "saved" + lastKnownLocation.getLatitude(), Toast.LENGTH_LONG).show();
@@ -82,8 +88,5 @@ public class MainActivity extends Activity {
             Toast.makeText(this, "last known location is null!", Toast.LENGTH_LONG).show();
         }
 
-    }
-    public static int currentTimeMillis() {
-        return (int) (System.currentTimeMillis() % Integer.MAX_VALUE);
     }
 }

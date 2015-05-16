@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              style="@style/listItem"
+              android:weightSum="1"
+              android:baselineAligned="false">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2012-03-30 12:35"
+        android:id="@+id/date"
+        style="@style/listItem"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="left"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/temp"
+        style="@style/listItem"
+        android:text="@string/default_temp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/date"
+        android:layout_gravity="left"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temp_postfix"
+        style="@style/listItem"
+        android:id="@+id/temp_postfix"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/temp"
+        android:layout_gravity="left"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/humidity"
+        android:layout_marginLeft="10dp"
+        style="@style/listItem"
+        android:text="@string/default_humidity"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/temp_postfix"
+        android:layout_gravity="left"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/humidity_postfix"
+        android:id="@+id/humidity_postfix"
+        style="@style/listItem"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/humidity"
+        android:layout_gravity="left"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_location"
+        android:background="@drawable/ic_action_place"
+        android:contentDescription="delete"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/btn_delete"
+        android:layout_gravity="left"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_delete"
+        android:background="@drawable/ic_action_remove"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="delete"
+        android:layout_alignParentStart="false"
+        android:layout_gravity="left"/>
+</RelativeLayout>
