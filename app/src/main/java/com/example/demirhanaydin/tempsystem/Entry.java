@@ -46,6 +46,10 @@ public class Entry {
         return String.format("%1$,.0f", getHumidity());
     }
 
+    public static String stringfy(double d) {
+        return String.format("%1$,.0f", d);
+    }
+
     public String stringfyCreatedAt(){
         if(prettyCreatedAt == "" || prettyCreatedAt == null)
             this.prettyCreatedAt = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date(getCreated_at()));
@@ -53,7 +57,7 @@ public class Entry {
     }
 
     public String getBriefInfo(){
-        return "Temp: " + getTemp() + " " + "Humidity: " + getHumidity();
+        return getDescription() + "\n" + "Temp: " + getTemp() + " " + "Humidity: " + getHumidity();
     }
     public int getId() {
         return id;
