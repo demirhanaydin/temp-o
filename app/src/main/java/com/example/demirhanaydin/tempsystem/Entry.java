@@ -2,6 +2,9 @@ package com.example.demirhanaydin.tempsystem;
 
 import android.database.Cursor;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by demirhanaydin on 12/05/15.
  */
@@ -13,6 +16,7 @@ public class Entry {
     private double lat;
     private double lng;
     private long created_at;
+    private String prettyCreatedAt;
 
     public Entry(int id, double temp, double humidity, String description, double lat, double lng, long created_at) {
         this.id = id;
@@ -34,7 +38,23 @@ public class Entry {
                 cursor.getLong(6)
         );
     }
+    public String stringfyTemp(){
+        return String.format("%1$,.0f", getTemp());
+    }
 
+    public String stringfyHumidity() {
+        return String.format("%1$,.0f", getHumidity());
+    }
+
+    public String stringfyCreatedAt(){
+        if(prettyCreatedAt == "" || prettyCreatedAt == null)
+            this.prettyCreatedAt = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date(getCreated_at()));
+        return prettyCreatedAt;
+    }
+
+    public String getBriefInfo(){
+        return "Temp: " + getTemp() + " " + "Humidity: " + getHumidity();
+    }
     public int getId() {
         return id;
     }

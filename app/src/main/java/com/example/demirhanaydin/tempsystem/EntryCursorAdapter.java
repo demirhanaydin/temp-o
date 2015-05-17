@@ -2,6 +2,8 @@ package com.example.demirhanaydin.tempsystem;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,8 +11,14 @@ import android.widget.CursorAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.w3c.dom.Text;
 
@@ -26,11 +34,13 @@ import java.util.Date;
 public class EntryCursorAdapter extends CursorAdapter {
     private Context context;
     private int layout;
+    private GoogleMap mMap;
 
-    public EntryCursorAdapter(Context context, Cursor cursor, int layout) {
+    public EntryCursorAdapter(Context context, Cursor cursor, int layout, GoogleMap mMap) {
         super(context, cursor, false);
         this.context = context;
         this.layout = layout;
+        this.mMap = mMap;
     }
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
@@ -42,19 +52,17 @@ public class EntryCursorAdapter extends CursorAdapter {
 
     @Override
     public void bindView(View view, final Context context, final Cursor cursor) {
-
         // assign entry object
         final Entry entry = new Entry(cursor);
         // set Date
         TextView created_at = (TextView) view.findViewById(R.id.date);
-        String dateAsText = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date(entry.getCreated_at()));
-        created_at.setText(dateAsText);
+        created_at.setText(entry.stringfyCreatedAt());
         // set temp
         TextView temp = (TextView) view.findViewById(R.id.temp);
-        temp.setText(String.format("%1$,.0f", entry.getTemp()));
+        temp.setText(entry.stringfyTemp());
         // set humidity
         TextView humidity = (TextView) view.findViewById(R.id.humidity);
-        humidity.setText(String.format("%1$,.0f", entry.getHumidity()));
+        humidity.setText(entry.stringfyHumidity());
         // set delete button & its action
         ImageButton btnDelete = (ImageButton) view.findViewById(R.id.btn_delete);
         btnDelete.setOnClickListener(new View.OnClickListener() {
@@ -71,11 +79,25 @@ public class EntryCursorAdapter extends CursorAdapter {
         btnLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//            DatabaseHandler db = new DatabaseHandler(context);
-//            db.deleteEntry(entry);
-//            cursor.requery();
-//            notifyDataSetChanged();
+                // map things
+                if(mMap != null){
+                    LatLng location = new LatLng(entry.getLat(), entry.getLng());
+
+                    MarkerOptions markerOptions  = new MarkerOptions();
+                    markerOptions.position(location);
+                    markerOptions.title(entry.stringfyCreatedAt());
+                    markerOptions.snippet(makeToolTipForInfoWindow(entry));
+                    mMap.addMarker(markerOptions).showInfoWindow();
+                    CameraPosition cameraPosition = new CameraPosition.Builder()
+                            .target(location).zoom(12).build();
+                    mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                } else{
+                    System.out.println("mmap is null, sorry!");
+                }
             }
         });
+    }
+    private String makeToolTipForInfoWindow(Entry entry){
+        return entry.getBriefInfo();
     }
 }

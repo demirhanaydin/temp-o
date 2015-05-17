@@ -57,6 +57,7 @@ public class MainActivity extends Activity {
         if (id == R.id.action_history) {
             // intent to history page
             Intent intent = new Intent(this, MapActivity.class);
+            intent.putExtra("lastKnownLocation", lastKnownLocation);
             startActivity(intent);
             return true;
         }
