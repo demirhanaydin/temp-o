@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="48dp"
+              style="@style/listItem"
+              android:weightSum="1"
+              android:baselineAligned="false">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="30 May &apos;15 - 12:35"
+        android:id="@+id/date"
+        style="@style/listItem.date"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="left"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/temp"
+        style="@style/listItem"
+        android:text="@string/default_temp"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="left"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temp_postfix"
+        style="@style/listItem"
+        android:id="@+id/temp_postfix"
+        android:layout_gravity="left"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/temp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/humidity"
+        android:layout_marginLeft="10dp"
+        style="@style/listItem"
+        android:text="@string/default_humidity"
+        android:layout_gravity="left"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/temp_postfix"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/humidity_postfix"
+        android:id="@+id/humidity_postfix"
+        style="@style/listItem"
+        android:layout_gravity="left"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/humidity"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_location"
+        android:background="@android:drawable/ic_menu_mylocation"
+        android:contentDescription="delete"
+        style="@style/listItem.btn_icon"
+        android:layout_gravity="left"
+        android:layout_alignTop="@+id/btn_delete"
+        android:layout_toStartOf="@+id/btn_delete"
+        android:layout_marginRight="5dp"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_delete"
+        android:background="@android:drawable/ic_menu_close_clear_cancel"
+        android:contentDescription="delete"
+        style="@style/listItem.btn_icon"
+        android:layout_gravity="left"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="5dp"/>
+</RelativeLayout>
