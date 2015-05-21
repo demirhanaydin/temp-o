@@ -89,7 +89,7 @@ public class EntryCursorAdapter extends CursorAdapter {
                     markerOptions.snippet(entry.getBriefInfo());
                     mMap.addMarker(markerOptions).showInfoWindow();
                     CameraPosition cameraPosition = new CameraPosition.Builder()
-                            .target(location).zoom(12).build();
+                            .target(location).zoom(15).build();
                     mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                 } else{
                     System.out.println("mmap is null, sorry!");

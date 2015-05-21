@@ -131,7 +131,7 @@ public class MapActivity extends FragmentActivity {
         //mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(new LatLng(41.085298, 29.046704))
-                .zoom(12)
+                .zoom(15)
                 .bearing(0)
                 .tilt(0)
                 .build();
