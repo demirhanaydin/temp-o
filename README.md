@@ -20,3 +20,5 @@ Local temperature measurement system with Raspberry Pi
 - Install android app which is located '/TempSystem' folder
 
 ## Screenshots
+![Main Activity](pi/resources/app-main.png)
+![Map Activity](pi/resources/app-map.png)
