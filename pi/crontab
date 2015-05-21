@@ -1,0 +1,2 @@
+@reboot sudo /home/pi/examples/Adafruit_Python_DHT/examples/broadcastTempData.py
+
