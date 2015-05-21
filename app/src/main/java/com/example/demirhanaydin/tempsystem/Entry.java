@@ -52,12 +52,16 @@ public class Entry {
 
     public String stringfyCreatedAt(){
         if(prettyCreatedAt == "" || prettyCreatedAt == null)
-            this.prettyCreatedAt = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date(getCreated_at()));
+            this.prettyCreatedAt = new SimpleDateFormat("dd MMM yy - HH:mm").format(new Date(getCreated_at()));
         return prettyCreatedAt;
     }
 
     public String getBriefInfo(){
-        return getDescription() + "\n" + "Temp: " + getTemp() + " " + "Humidity: " + getHumidity();
+        return getDescription();
+    }
+
+    public String getTitleInfo(){
+        return stringfyCreatedAt() + " | " + getTemp() + "°C " + getHumidity() + "%";
     }
     public int getId() {
         return id;

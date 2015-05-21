@@ -25,6 +25,13 @@
     <style name="listItem" parent="AppTheme">
         <item name="android:textSize">10pt</item>
     </style>
+    <style name="listItem.date">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="listItem.btn_icon">
+        <item name="android:layout_width">50px</item>
+        <item name="android:layout_height">50px</item>
+    </style>
 </resources>
 
 

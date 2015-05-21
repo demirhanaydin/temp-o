@@ -97,7 +97,8 @@ public class MainActivity extends Activity {
                     System.currentTimeMillis());
             result = db.addEntry(entry);
             if(result > 0){
-                Toast.makeText(this, "saved" + lastKnownLocation.getLatitude(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "Saved!" + lastKnownLocation.getLatitude(), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Saved!", Toast.LENGTH_LONG).show();
             }else {
                 Toast.makeText(this, "problem!", Toast.LENGTH_LONG).show();
             }

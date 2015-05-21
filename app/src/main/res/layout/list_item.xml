@@ -10,10 +10,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2012-03-30 12:35"
+        android:text="30 May &apos;15 - 12:35"
         android:id="@+id/date"
-        style="@style/listItem"
-        android:layout_marginRight="5dp"
+        style="@style/listItem.date"
+        android:layout_marginRight="10dp"
         android:layout_gravity="left"
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true"/>
@@ -24,7 +24,7 @@
         android:id="@+id/temp"
         style="@style/listItem"
         android:text="@string/default_temp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:layout_gravity="left"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"/>
@@ -63,21 +63,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btn_location"
-        android:background="@drawable/ic_action_place"
+        android:background="@android:drawable/ic_menu_mylocation"
         android:contentDescription="delete"
-        android:layout_alignParentTop="true"
+        style="@style/listItem.btn_icon"
+        android:layout_gravity="left"
+        android:layout_alignTop="@+id/btn_delete"
         android:layout_toStartOf="@+id/btn_delete"
-        android:layout_centerVertical="true"
-        android:layout_gravity="left"/>
+        android:layout_marginRight="5dp"/>
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btn_delete"
-        android:background="@drawable/ic_action_remove"
-        android:layout_alignParentTop="true"
+        android:background="@android:drawable/ic_menu_close_clear_cancel"
+        android:contentDescription="delete"
+        style="@style/listItem.btn_icon"
+        android:layout_gravity="left"
         android:layout_centerVertical="true"
         android:layout_alignParentEnd="true"
-        android:contentDescription="delete"
-        android:layout_alignParentStart="false"
-        android:layout_gravity="left"/>
+        android:layout_marginRight="5dp"/>
 </RelativeLayout>

@@ -55,7 +55,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public Cursor getEntries(){
         SQLiteDatabase db = this.getWritableDatabase();
         // query - select all
-        String selectQuery = "SELECT * FROM " + TABLE_ENTRY;
+        String selectQuery = "SELECT * FROM " + TABLE_ENTRY + " ORDER BY " + COL_KEY_ID + " DESC";
         // run the query
         Cursor cursor = db.rawQuery(selectQuery, null);
         // return cursor object

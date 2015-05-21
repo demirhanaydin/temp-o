@@ -85,8 +85,8 @@ public class EntryCursorAdapter extends CursorAdapter {
 
                     MarkerOptions markerOptions  = new MarkerOptions();
                     markerOptions.position(location);
-                    markerOptions.title(entry.stringfyCreatedAt());
-                    markerOptions.snippet(makeToolTipForInfoWindow(entry));
+                    markerOptions.title(entry.getTitleInfo());
+                    markerOptions.snippet(entry.getBriefInfo());
                     mMap.addMarker(markerOptions).showInfoWindow();
                     CameraPosition cameraPosition = new CameraPosition.Builder()
                             .target(location).zoom(12).build();
@@ -96,8 +96,5 @@ public class EntryCursorAdapter extends CursorAdapter {
                 }
             }
         });
-    }
-    private String makeToolTipForInfoWindow(Entry entry){
-        return entry.getBriefInfo();
     }
 }
